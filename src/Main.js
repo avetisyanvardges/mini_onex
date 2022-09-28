@@ -1,8 +1,12 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { Fragment } from 'react';
+import StackNavigation from 'navigation/StackNavigation';
 
 const Main = () => {
-  return <View style={{ flex: 1 }}>{/*<StackNavigation />*/}</View>;
+  return (
+    <Fragment>
+      <StackNavigation />
+    </Fragment>
+  );
 };
 
 export default Main;
