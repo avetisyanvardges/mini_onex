@@ -1,0 +1,3 @@
+const SET_TAB_VISIBLE = 'SET_TAB_VISIBLE';
+
+export { SET_TAB_VISIBLE };

@@ -1,0 +1,4 @@
+const DARK_THEME = 'DARK_THEME';
+const LIGHT_THEME = 'LIGHT_THEME';
+
+export { DARK_THEME, LIGHT_THEME };
