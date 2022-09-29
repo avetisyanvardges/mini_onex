@@ -6,8 +6,8 @@ const ClosedEyeIcon = ({ width, height, color }) => {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width || Sizes(15)}
-      height={height || Sizes(15)}
+      width={width || Sizes(24)}
+      height={height || Sizes(24)}
       viewBox="0 0 512 512"
       enableBackground="new 0 0 512 512">
       <Path

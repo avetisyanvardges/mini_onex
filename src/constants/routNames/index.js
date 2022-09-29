@@ -1,7 +1,7 @@
 export const routNames = {
-  Auth: 'Auth',
-  Login: 'Login',
-  Registration: 'Registration',
-  UserScreens: 'UserScreens',
-  AdminScreens: 'AdminScreens',
+  AUTH: 'Auth',
+  LOGIN: 'Login',
+  REGISTRATION: 'Registration',
+  USER_SCREENS: 'UserScreens',
+  ADMIN_SCREENS: 'AdminScreens',
 };

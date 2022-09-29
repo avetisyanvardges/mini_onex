@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BackgroundColors, Colors, Sizes } from 'assets/RootStyles';
+import { Colors, Sizes } from 'assets/RootStyles';
 
 const Styles = (theme) => {
   return StyleSheet.create({

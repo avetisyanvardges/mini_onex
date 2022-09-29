@@ -5,15 +5,15 @@ import { routNames } from 'constants/routNames';
 
 function checkInitialRoute() {
   const { currentUser } = UserService;
-  const admin = currentUser?.role === userRoles.Admin;
+  const admin = currentUser?.role === userRoles.ADMIN;
   if (currentUser) {
     if (admin) {
-      return routNames.AdminScreens;
+      return routNames.ADMIN_SCREENS;
     } else {
-      return routNames.UserScreens;
+      return routNames.USER_SCREENS;
     }
   } else {
-    return routNames.Auth;
+    return routNames.AUTH;
   }
 }
 

@@ -1,36 +1,29 @@
-import React, { useState } from 'react';
-import { Image, Pressable, Text, View, Keyboard } from 'react-native';
+import React from 'react';
+import { Image, Pressable, SafeAreaView, Text, View } from 'react-native';
 import { Colors } from 'assets/RootStyles';
-import { Styles } from './styles';
 import { images } from 'assets/Images';
 import * as Animatable from 'react-native-animatable';
-import { useSelector } from 'react-redux';
-import { LoginScreen } from 'screens/Auth/components/Login';
-import { RegistrationScreen } from 'screens/Auth/components/Registration';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import useContainer from 'screens/Auth/hook';
 
 const AuthScreen = () => {
-  const { theme } = useSelector(({ themes }) => themes);
-  const styles = Styles(theme);
-  const [activeTab, setActiveTab] = useState('login');
-  const content = {
-    login: <LoginScreen />,
-    signUp: <RegistrationScreen />,
-  };
+  const { styles, activeTab, setActiveTab, content } = useContainer();
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Animatable.View animation="zoomIn" style={styles.header}>
         <Image source={images.logo} style={styles.logo} />
         <Text style={styles.title}>Onex</Text>
       </Animatable.View>
-      <Animatable.View animation="fadeInUp" style={styles.content}>
+      <Animatable.View animation="fadeIn" style={styles.content}>
         <View style={styles.tabContainer}>
           <Pressable
             onPress={() => setActiveTab('login')}
             style={[
               styles.tab,
-              { backgroundColor: activeTab === 'login' ? Colors.green : Colors.white },
+              {
+                backgroundColor: activeTab === 'login' ? Colors.green : Colors.white,
+                borderTopRightRadius: 0,
+                borderBottomLeftRadius: 0,
+              },
             ]}>
             <Text style={styles.tabText}>Login</Text>
           </Pressable>
@@ -38,14 +31,18 @@ const AuthScreen = () => {
             onPress={() => setActiveTab('signUp')}
             style={[
               styles.tab,
-              { backgroundColor: activeTab === 'signUp' ? Colors.green : Colors.white },
+              {
+                backgroundColor: activeTab === 'signUp' ? Colors.green : Colors.white,
+                borderTopLeftRadius: 0,
+                borderBottomRightRadius: 0,
+              },
             ]}>
             <Text style={styles.tabText}>Sign up</Text>
           </Pressable>
         </View>
         {content[activeTab]}
       </Animatable.View>
-    </View>
+    </SafeAreaView>
   );
 };
 

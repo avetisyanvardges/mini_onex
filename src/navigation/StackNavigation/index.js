@@ -13,7 +13,7 @@ const StackNavigation = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={initialRoute}>
-        <Stack.Screen name={routNames.Auth} component={AuthScreen} />
+        <Stack.Screen name={routNames.AUTH} component={AuthScreen} />
         {/*<Stack.Screen name={routNames.AdminScreens} component={AuthStack} />*/}
         {/*<Stack.Screen name={routNames.UserScreens} component={AuthStack} />*/}
       </Stack.Navigator>

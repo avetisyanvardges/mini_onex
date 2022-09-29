@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TextInput, View, Text } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 import { Styles } from './styles';
 import { Colors } from 'assets/RootStyles';
 
@@ -20,7 +20,9 @@ function Input(props) {
     inputFocusHandle,
     onBlurHandler,
     errorText,
+    validated,
   } = props;
+  console.log(validated, '777');
   return (
     <View style={styles.container}>
       <View>
@@ -40,7 +42,7 @@ function Input(props) {
           placeholderTextColor={Colors.placeholder}
         />
       </View>
-      {errorText ? (
+      {validated ? (
         <Text numberOfLines={1} ellipsizeMode="tail" style={styles.errorTextStyle}>
           {errorText}
         </Text>

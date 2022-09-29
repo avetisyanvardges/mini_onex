@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { BackgroundColors, Colors, Shadow, Sizes } from 'assets/RootStyles';
+import { deviceInfo } from 'assets/DeviceInfo';
 
 const Styles = (theme) => {
   return StyleSheet.create({
@@ -23,10 +24,8 @@ const Styles = (theme) => {
       color: Colors.green,
     },
     content: {
-      marginTop: Sizes(30),
-      minHeight: Sizes(450),
       marginHorizontal: Sizes(15),
-      padding: Sizes(5),
+      marginTop: Sizes(15),
       borderRadius: Sizes(12),
       backgroundColor: BackgroundColors.white,
       ...Shadow,
@@ -46,6 +45,18 @@ const Styles = (theme) => {
     },
     tabText: {
       color: theme?.PRIMARY_TEXT_COLOR,
+    },
+    input: {
+      fontSize: Sizes(16),
+      color: theme?.PRIMARY_TEXT_COLOR,
+    },
+    inputContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: deviceInfo.ios ? Sizes(10) : 0,
+      marginVertical: Sizes(3),
+      borderBottomWidth: 0.5,
+      borderColor: Colors.placeholder,
     },
   });
 };
