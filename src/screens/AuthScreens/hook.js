@@ -1,8 +1,8 @@
-import { Styles } from './styles';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { LoginScreen } from 'screens/Auth/components/Login';
-import { RegistrationScreen } from 'screens/Auth/components/Registration';
+import { LoginScreen } from './components/Login';
+import { RegistrationScreen } from './components/Registration';
+import { Styles } from './styles';
 
 function useContainer() {
   const { theme } = useSelector(({ themes }) => themes);

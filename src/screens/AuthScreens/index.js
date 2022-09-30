@@ -3,7 +3,7 @@ import { Image, Pressable, SafeAreaView, Text, View } from 'react-native';
 import { Colors } from 'assets/RootStyles';
 import { images } from 'assets/Images';
 import * as Animatable from 'react-native-animatable';
-import useContainer from 'screens/Auth/hook';
+import useContainer from 'screens/AuthScreens/hook';
 
 const AuthScreen = () => {
   const { styles, activeTab, setActiveTab, content } = useContainer();

@@ -10,7 +10,6 @@ import UserStack from 'navigation/StackNavigation/UserStack';
 const StackNavigation = () => {
   const initialRoute = checkInitialRoute();
   const Stack = createStackNavigator();
-  console.log(initialRoute);
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={initialRoute}>

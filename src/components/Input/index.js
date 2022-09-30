@@ -22,7 +22,6 @@ function Input(props) {
     errorText,
     validated,
   } = props;
-  console.log(validated, '777');
   return (
     <View style={styles.container}>
       <View>

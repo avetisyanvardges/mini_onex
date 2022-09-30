@@ -20,6 +20,7 @@ export const Colors = {
   white: '#ffffff',
   red: '#ed3833',
   placeholder: '#cccccc',
+  yellow: '#fcba03',
 };
 
 export const BackgroundColors = {

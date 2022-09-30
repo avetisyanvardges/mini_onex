@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { Styles } from 'screens/Auth/styles';
+import { Styles } from 'screens/AuthScreens/styles';
 import { userRoles } from 'constants/userRoles';
 
 function useContainer() {

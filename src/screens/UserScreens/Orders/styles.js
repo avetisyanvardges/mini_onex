@@ -12,10 +12,11 @@ const Styles = (theme) => {
     search_container: {
       flex: 1,
       height: Sizes(40),
+      flexDirection: 'row',
       borderRadius: 10,
       backgroundColor: Colors.white,
       alignItems: 'flex-start',
-      justifyContent: 'center',
+      alignItems: 'center',
       paddingHorizontal: Sizes(10),
       marginRight: Sizes(10),
       ...Shadow,
