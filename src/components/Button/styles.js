@@ -8,6 +8,7 @@ const Styles = (theme, buttonColor) => {
       justifyContent: 'center',
       borderRadius: Sizes(20),
       backgroundColor: buttonColor?.PRIMARY_BUTTON_COLOR,
+      shadowColor: theme?.PRIMARY_TEXT_COLOR,
       ...Shadow,
     },
     textStyle: {

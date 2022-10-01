@@ -6,8 +6,8 @@ function useContainer() {
   const { theme } = useSelector(({ themes }) => themes);
   const [passwordShow, setPasswordShow] = useState(false);
   const [state] = useState({
-    email: '',
-    password: '',
+    email: 'test@gmail.com',
+    password: '123456vV$',
   });
   const styles = Styles(theme);
 

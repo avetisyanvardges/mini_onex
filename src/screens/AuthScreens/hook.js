@@ -6,8 +6,8 @@ import { Styles } from './styles';
 
 function useContainer() {
   const { theme } = useSelector(({ themes }) => themes);
-  const styles = Styles(theme);
   const [activeTab, setActiveTab] = useState('login');
+  const styles = Styles(theme, activeTab);
   const content = {
     login: <LoginScreen />,
     signUp: <RegistrationScreen />,

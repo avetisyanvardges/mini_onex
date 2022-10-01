@@ -1,12 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from 'store';
+import { persistor, store } from 'store';
 import Main from 'Main';
-import { useCheckTheme } from 'utils';
+import { LogBox } from 'react-native';
 
 const App = () => {
-  useCheckTheme();
+  LogBox.ignoreLogs(['Require cycle:']);
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

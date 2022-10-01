@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { Colors, Shadow, Sizes } from 'assets/RootStyles';
+import useContainer from 'components/ToastMessage/hook';
 
-const Styles = () => {
+const Styles = (theme) => {
   return StyleSheet.create({
     container: {
       minHeight: Sizes(40),
@@ -16,6 +17,7 @@ const Styles = () => {
       zIndex: 999,
       flexDirection: 'row',
       alignItems: 'center',
+      shadowColor: theme?.PRIMARY_TEXT_COLOR,
       ...Shadow,
     },
     typeColor: {
@@ -25,6 +27,16 @@ const Styles = () => {
       borderBottomWidth: 0.1,
       borderLeftWidth: 3,
       borderRadius: Sizes(10),
+    },
+    message_container: {
+      flex: 1,
+      marginHorizontal: Sizes(15),
+      paddingLeft: 0,
+    },
+    message: {
+      color: Colors.white,
+      fontWeight: '600',
+      fontSize: Sizes(15),
     },
   });
 };

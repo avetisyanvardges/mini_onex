@@ -29,16 +29,16 @@ const RegistrationScreen = () => {
     <Formik
       initialValues={{ ...state }}
       validationSchema={validationSchema}
-      onSubmit={(values) => dispatch(SIGN_UP_REQUEST, values)}>
+      onSubmit={(values) => dispatch(SIGN_UP_REQUEST, { ...values, role })}>
       {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-        <View style={{ marginTop: Sizes(25), paddingHorizontal: Sizes(10) }}>
+        <View style={styles.login_container}>
           <Animatable.View
             animation="fadeInDown"
             duration={2200}
             useNativeDriver
             style={styles.inputContainer}>
             <Input
-              placeholder={'Անուն'}
+              placeholder={'Name'}
               value={values.name}
               onChangeText={handleChange('name')}
               placeholderTextColor={theme?.PRIMARY_BACKGROUND_COLOR}
@@ -55,7 +55,7 @@ const RegistrationScreen = () => {
             useNativeDriver
             style={styles.inputContainer}>
             <Input
-              placeholder={'Էլ․հասցե'}
+              placeholder={'Email'}
               value={values.email}
               onChangeText={handleChange('email')}
               placeholderTextColor={theme?.PRIMARY_BACKGROUND_COLOR}
@@ -72,7 +72,7 @@ const RegistrationScreen = () => {
             useNativeDriver
             style={styles.inputContainer}>
             <Input
-              placeholder={'հեռախոսահամար'}
+              placeholder={'Phone number'}
               value={values.phone}
               onChangeText={handleChange('phone')}
               placeholderTextColor={theme?.PRIMARY_BACKGROUND_COLOR}
@@ -89,7 +89,7 @@ const RegistrationScreen = () => {
             useNativeDriver
             style={styles.inputContainer}>
             <Input
-              placeholder={'Գաղտնաբառ'}
+              placeholder={'Password'}
               value={values.password}
               onChangeText={handleChange('password')}
               placeholderTextColor={theme?.PRIMARY_BACKGROUND_COLOR}
@@ -100,9 +100,7 @@ const RegistrationScreen = () => {
               onBlurHandler={handleBlur('password')}
               required
             />
-            <Pressable
-              onPress={() => setPasswordShow(!passwordShow)}
-              style={{ marginHorizontal: Sizes(10) }}>
+            <Pressable onPress={() => setPasswordShow(!passwordShow)} style={styles.eye_press}>
               {passwordShow ? (
                 <EyeIcon width={Sizes(20)} height={Sizes(20)} color={Colors.placeholder} />
               ) : (
@@ -116,7 +114,7 @@ const RegistrationScreen = () => {
             useNativeDriver
             style={styles.inputContainer}>
             <Input
-              placeholder={'Հաստատել գաղտնաբառը'}
+              placeholder={'Confirm password'}
               value={values.confirmPassword}
               onChangeText={handleChange('confirmPassword')}
               placeholderTextColor={theme?.PRIMARY_BACKGROUND_COLOR}
@@ -129,7 +127,7 @@ const RegistrationScreen = () => {
             />
             <Pressable
               onPress={() => setConfirmPassShow(!confirmPassShow)}
-              style={{ marginHorizontal: Sizes(10) }}>
+              style={styles.eye_press}>
               {confirmPassShow ? (
                 <EyeIcon width={Sizes(20)} height={Sizes(20)} color={Colors.placeholder} />
               ) : (
@@ -141,25 +139,17 @@ const RegistrationScreen = () => {
             animation="fadeInDown"
             duration={1300}
             useNativeDriver
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-              marginTop: Sizes(15),
-            }}>
-            <Pressable onPress={() => setRole(userRoles.USER)} style={{ flexDirection: 'row' }}>
+            style={styles.roles_container}>
+            <Pressable onPress={() => setRole(userRoles.USER)} style={styles.roles}>
               <RadioButton size={Sizes(18)} active={role === userRoles.USER} />
-              <CustomText children="User" />
+              <CustomText children="User" globalStyle={{ color: theme?.PRIMARY_TEXT_COLOR }} />
             </Pressable>
-            <Pressable onPress={() => setRole(userRoles.ADMIN)} style={{ flexDirection: 'row' }}>
+            <Pressable onPress={() => setRole(userRoles.ADMIN)} style={styles.roles}>
               <RadioButton size={Sizes(18)} active={role === userRoles.ADMIN} />
-              <CustomText children="Admin" />
+              <CustomText children="Admin" globalStyle={{ color: theme?.PRIMARY_TEXT_COLOR }} />
             </Pressable>
           </Animatable.View>
-          <Animatable.View
-            animation="fadeInDown"
-            duration={500}
-            style={{ marginVertical: Sizes(50), alignItems: 'center' }}>
+          <Animatable.View animation="fadeInDown" duration={500} style={styles.button}>
             <Button title="Sign Up" size="normal" onPress={handleSubmit} />
           </Animatable.View>
         </View>

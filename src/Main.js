@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import StackNavigation from 'navigation/StackNavigation';
-import { LogBox } from 'react-native';
 import { ToastMessage } from 'components';
 import { useSelector } from 'react-redux';
+import { useCheckTheme } from 'utils';
 
 const Main = () => {
   const toast = useSelector(({ toast }) => toast);
-  LogBox.ignoreLogs(['Require cycle:']);
+  useCheckTheme();
+
   return (
     <Fragment>
       {toast.visible && <ToastMessage message={toast.message} type={toast.type} />}

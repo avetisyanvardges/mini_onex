@@ -5,4 +5,6 @@ export * from './Header/FilterIcon';
 export * from './Tracking';
 export * from './TickCircle';
 export * from './MinusCircle';
+export * from './Moon';
+export * from './Sun';
 export * from './Header/SettingsIcon';

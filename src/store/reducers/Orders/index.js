@@ -14,7 +14,7 @@ export default function reducer(state = initialState, { payload, type }) {
       };
     case SEARCH_WITH_DESCRIPTION:
       const newList = state.list.reduce((acc, item, index) => {
-        if (item.description.includes(payload)) {
+        if (item[payload.searchType].includes(payload.searchText)) {
           acc.push(item);
         }
         return acc;

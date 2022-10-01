@@ -4,23 +4,18 @@ import { MinusCircle, TickCircle } from 'assets/Icons';
 import { Colors, Sizes } from 'assets/RootStyles';
 import { images } from 'assets/Images';
 import * as Animatable from 'react-native-animatable';
+import { Styles } from './style';
 
 const TrackItem = (props) => {
+  const styles = Styles();
   return (
     <Animatable.View
       animation="flipInY"
       useNativeDriver
       duration={props.index === 0 ? 1500 : props.index * 1500}
-      style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+      style={styles.container}>
       {props.process ? (
-        <Image
-          source={images.logo}
-          resizeMode="contain"
-          style={{
-            width: Sizes(25),
-            height: Sizes(25),
-          }}
-        />
+        <Image source={images.logo} resizeMode="contain" style={styles.image} />
       ) : props.completed ? (
         <TickCircle color={Colors.green} />
       ) : (
@@ -28,12 +23,10 @@ const TrackItem = (props) => {
       )}
       {!props.latest && (
         <View
-          style={{
-            width: Sizes(45),
-            height: Sizes(2),
-            backgroundColor: props.completed ? Colors.green : Colors.placeholder,
-            marginHorizontal: Sizes(5),
-          }}
+          style={[
+            styles.track_container,
+            { backgroundColor: props.completed ? Colors.green : Colors.placeholder },
+          ]}
         />
       )}
     </Animatable.View>

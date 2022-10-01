@@ -8,20 +8,22 @@ import { CustomText } from 'components';
 import { Button } from 'components/Button';
 import useContainer from './hook';
 import { Formik } from 'formik';
+import dispatch from 'helper/dispatch/dispatch';
+import { SIGN_IN_REQUEST } from 'store/actions/types';
 
 const LoginScreen = () => {
   const { styles, passwordShow, setPasswordShow, state, theme } = useContainer();
   return (
-    <Formik initialValues={{ ...state }} onSubmit={(values) => console.log(values)}>
+    <Formik initialValues={{ ...state }} onSubmit={(values) => dispatch(SIGN_IN_REQUEST, values)}>
       {({ handleChange, handleBlur, handleSubmit, values }) => (
-        <View style={{ marginTop: Sizes(25), paddingHorizontal: Sizes(10) }}>
+        <View style={styles.login_container}>
           <Animatable.View
             animation="fadeInDown"
             duration={1600}
             useNativeDriver
             style={styles.inputContainer}>
             <Input
-              placeholder={'Էլ․հասցե'}
+              placeholder={'Email'}
               value={values.email}
               onChangeText={handleChange('email')}
               placeholderTextColor={theme?.PRIMARY_BACKGROUND_COLOR}
@@ -34,16 +36,14 @@ const LoginScreen = () => {
             duration={1200}
             style={styles.inputContainer}>
             <Input
-              placeholder={'Գաղտնաբառ'}
+              placeholder={'Password'}
               value={values.password}
               onChangeText={handleChange('password')}
               placeholderTextColor={theme?.PRIMARY_TEXT_COLOR}
               secureTextEntry={!passwordShow}
               inputStyles={styles.input}
             />
-            <Pressable
-              onPress={() => setPasswordShow(!passwordShow)}
-              style={{ marginHorizontal: Sizes(10) }}>
+            <Pressable onPress={() => setPasswordShow(!passwordShow)} style={styles.eye_press}>
               {passwordShow ? (
                 <EyeIcon width={Sizes(24)} height={Sizes(24)} color={Colors.placeholder} />
               ) : (
@@ -52,23 +52,16 @@ const LoginScreen = () => {
             </Pressable>
           </Animatable.View>
           <Animatable.View animation="fadeInDown" useNativeDriver duration={800}>
-            <Pressable style={{ marginTop: Sizes(10) }}>
-              <CustomText
-                children="Մոռացել ե՞ք գաղտնաբառը"
-                globalStyle={{
-                  fontSize: Sizes(14),
-                  color: Colors.green,
-                  textAlign: 'right',
-                }}
-              />
+            <Pressable style={styles.forgot_press}>
+              <CustomText children="Forgot password" globalStyle={styles.forgot} />
             </Pressable>
           </Animatable.View>
           <Animatable.View
             animation="fadeInDown"
             useNativeDriver
             duration={400}
-            style={{ marginVertical: Sizes(50), alignItems: 'center' }}>
-            <Button title="Login" size="normal" />
+            style={styles.button}>
+            <Button title="Login" size="normal" onPress={handleSubmit} />
           </Animatable.View>
         </View>
       )}

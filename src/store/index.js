@@ -28,6 +28,6 @@ const logicMiddleware = createLogicMiddleware(allLogics, operationsDependencies)
 
 const store = createStore(reducers, applyMiddleware(logicMiddleware));
 
-export const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-export default store;
+export { store, persistor };

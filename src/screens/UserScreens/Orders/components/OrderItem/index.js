@@ -6,8 +6,12 @@ import { CustomText } from 'components';
 import { orderStatus } from 'constants/orders';
 import TrackItem from 'screens/UserScreens/Orders/components/TrackItem';
 import moment from 'moment';
+import { Styles } from './style';
+import { useSelector } from 'react-redux';
 
 const OrderItem = (props) => {
+  const { theme } = useSelector(({ themes }) => themes);
+
   const {
     data: {
       country,
@@ -21,39 +25,25 @@ const OrderItem = (props) => {
     },
     index,
   } = props;
+  const styles = Styles(theme);
   return (
     <Animatable.View
       animation="fadeInDown"
       duration={index > 5 ? 5 * 200 : index === 0 ? 600 : index * 400}
-      style={{
-        flex: 1,
-        height: Sizes(150),
-        backgroundColor: Colors.white,
-        marginHorizontal: Sizes(10),
-        borderRadius: Sizes(12),
-        padding: Sizes(10),
-        ...Shadow,
-      }}>
+      style={styles.container}>
       <View>
-        <CustomText
-          children={`ID ${trackingCode}`}
-          globalStyle={{ color: Colors.green, fontWeight: 'bold' }}
-        />
-        <View
-          style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <CustomText children={name} />
-          <CustomText
-            children={`${currency} ֏`}
-            globalStyle={{ color: Colors.green, fontWeight: 'bold' }}
-          />
+        <CustomText children={`ID ${trackingCode}`} globalStyle={styles.tracking_code} />
+        <View style={styles.name_container}>
+          <CustomText children={name} globalStyle={styles.name} />
+          <CustomText children={`${currency} ֏`} globalStyle={styles.currency} />
         </View>
         <CustomText
           children={description}
           ellipsizeMode="tail"
           numberOfLines={1}
-          globalStyle={{ marginVertical: Sizes(5) }}
+          globalStyle={styles.description}
         />
-        <View style={{ alignItems: 'center', marginTop: Sizes(15) }}>
+        <View style={styles.content}>
           <FlatList
             horizontal
             data={Object.keys(orderStatus)}
@@ -68,21 +58,14 @@ const OrderItem = (props) => {
               );
             }}
           />
-          <View
-            style={{
-              width: '100%',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-              marginTop: Sizes(5),
-            }}>
+          <View style={styles.date_container}>
             <CustomText
-              children={moment(registeredDate).format('DD.MM.YYYY')}
-              globalStyle={{ marginRight: Sizes(50) }}
+              children={`${country}(${moment(registeredDate).format('DD.MM')})`}
+              globalStyle={styles.registered_date}
             />
             <CustomText
-              children={moment(receivedDate).format('DD.MM.YYYY')}
-              globalStyle={{ marginLeft: Sizes(50) }}
+              children={`Armenia(${moment(receivedDate).format('DD.MM')})`}
+              globalStyle={styles.received_date}
             />
           </View>
         </View>

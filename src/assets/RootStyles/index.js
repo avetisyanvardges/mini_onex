@@ -21,6 +21,7 @@ export const Colors = {
   red: '#ed3833',
   placeholder: '#cccccc',
   yellow: '#fcba03',
+  silver: '#818195',
 };
 
 export const BackgroundColors = {
@@ -29,7 +30,6 @@ export const BackgroundColors = {
 };
 
 export const Shadow = {
-  shadowColor: '#00000033',
   shadowOffset: {
     width: 0,
     height: 12,

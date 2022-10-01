@@ -1,19 +1,16 @@
-import {StyleSheet, useWindowDimensions} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const Styles = () => {
-  const {width, height} = useWindowDimensions();
   return StyleSheet.create({
-    page: {
+    container: {
+      flex: 1,
+      padding: 24,
       height: '100%',
       position: 'absolute',
       zIndex: 999,
       width: '100%',
-    },
-    container: {
-      flex: 1,
-      padding: 24,
-      backgroundColor: 'rgba(52, 52, 52, 0.8)',
+      backgroundColor: 'rgba(52, 52, 52, 0.5)',
     },
   });
 };
-export {Styles};
+export { Styles };
