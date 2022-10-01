@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function UseCallbackState(initialState) {
+export default function useCallbackState(initialState) {
   const [state, setState] = useState({ val: initialState, callback: null });
   useEffect(() => {
     const { callback } = state;
