@@ -1,16 +1,11 @@
 import React, { Fragment } from 'react';
 import { Pressable, View } from 'react-native';
-import { CustomText } from 'components';
-import { FilterIcon, MoonIcon, SettingsIcon, SunIcon, Tracking } from 'assets/Icons';
+import { FilterIcon, Tracking } from 'assets/Icons';
 import { Colors, Sizes } from 'assets/RootStyles';
 import Input from 'components/Input';
 import useContainer from './hook';
 import { Country } from 'assets/Icons/Country';
 import { searchTypes } from 'constants/search';
-import dispatch from 'helper/dispatch/dispatch';
-import { DARK_THEME, LIGHT_THEME } from 'store/actions/types';
-import { navigate } from 'services/NavigationService';
-import { routNames } from 'constants/routNames';
 
 const HeaderComponent = (props) => {
   const {
