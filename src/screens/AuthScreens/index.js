@@ -9,11 +9,11 @@ const AuthScreen = () => {
   const { styles, activeTab, setActiveTab, content } = useContainer();
   return (
     <SafeAreaView style={styles.container}>
-      <Animatable.View animation="zoomIn" style={styles.header}>
+      <Animatable.View useNativeDriver animation="zoomIn" style={styles.header}>
         <Image source={images.logo} style={styles.logo} />
         <Text style={styles.title}>Onex</Text>
       </Animatable.View>
-      <Animatable.View animation="fadeIn" style={styles.content}>
+      <Animatable.View useNativeDriver animation="fadeIn" style={styles.content}>
         <View style={styles.tabContainer}>
           <Pressable
             onPress={() => setActiveTab('login')}

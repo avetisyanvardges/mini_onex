@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 import { MinusCircle, TickCircle } from 'assets/Icons';
-import { Colors, Sizes } from 'assets/RootStyles';
+import { Colors } from 'assets/RootStyles';
 import { images } from 'assets/Images';
 import * as Animatable from 'react-native-animatable';
 import { Styles } from './style';

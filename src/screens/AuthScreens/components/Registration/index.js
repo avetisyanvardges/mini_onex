@@ -25,6 +25,7 @@ const RegistrationScreen = () => {
     setRole,
     role,
   } = useContainer();
+  console.log(1111);
   return (
     <Formik
       initialValues={{ ...state }}
@@ -149,7 +150,11 @@ const RegistrationScreen = () => {
               <CustomText children="Admin" globalStyle={{ color: theme?.PRIMARY_TEXT_COLOR }} />
             </Pressable>
           </Animatable.View>
-          <Animatable.View animation="fadeInDown" duration={500} style={styles.button}>
+          <Animatable.View
+            animation="fadeInDown"
+            useNativeDriver
+            duration={500}
+            style={styles.button}>
             <Button title="Sign Up" size="normal" onPress={handleSubmit} />
           </Animatable.View>
         </View>

@@ -1,8 +1,12 @@
-import { GET_ORDER_SUCCESS, SEARCH_WITH_DESCRIPTION } from 'store/actions/types/orderTypes';
-import { ordersList } from 'assets/mockData';
+import {
+  CANCEL_ORDER,
+  CHANGE_ORDER_STATUS,
+  GET_ORDER_SUCCESS,
+  SEARCH_WITH_DESCRIPTION,
+} from 'store/actions/types/orderTypes';
 
 const initialState = {
-  list: [...ordersList],
+  list: [],
   searchList: [],
 };
 
@@ -21,9 +25,28 @@ export default function reducer(state = initialState, { payload, type }) {
       }, []);
       return {
         searchList: newList,
-        list: [...ordersList],
       };
 
+    case CHANGE_ORDER_STATUS:
+      const array = state.list.map((object) => {
+        if (object?._id === payload?._id) {
+          return {
+            ...object,
+            status: payload?.status,
+          };
+        } else {
+          return object;
+        }
+      });
+      return {
+        ...state,
+        list: [...array],
+      };
+    case CANCEL_ORDER:
+      return {
+        ...state,
+        list: state.list.filter((list) => list._id !== payload),
+      };
     default: {
       return state;
     }

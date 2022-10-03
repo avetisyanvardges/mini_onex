@@ -34,7 +34,7 @@ const HeaderComponent = (props) => {
     <Fragment>
       <View style={styles.header}>
         <View style={styles.title_container}>
-          <CustomText children="Orders" globalStyle={styles.title} />
+          <CustomText children="All Orders" globalStyle={styles.title} />
         </View>
         <Pressable
           onPress={() => setSettingsVisible(!settingsVisible)}

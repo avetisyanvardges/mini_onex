@@ -18,7 +18,7 @@ export const signInLogic = createLogic({
       // } else if (currentUser.role === userRoles.USER) {
       //   await navigate(routNames.USER_SCREENS);
       // }
-      await navigate(routNames.USER_SCREENS.INITIAL);
+      await navigate(routNames.ADMIN_SCREENS.INITIAL);
     } catch (err) {
       console.error('ERROR signInLogic', err);
     }
