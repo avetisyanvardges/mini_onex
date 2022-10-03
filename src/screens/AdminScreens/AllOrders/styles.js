@@ -9,6 +9,7 @@ const Styles = (theme, buttonColor, list, filterSheetVisible) => {
       paddingBottom: Sizes(20),
       backgroundColor: theme?.PRIMARY_BACKGROUND_COLOR,
     },
+
     sep_component: {
       height: Sizes(15),
     },
@@ -46,6 +47,12 @@ const Styles = (theme, buttonColor, list, filterSheetVisible) => {
       ...Shadow,
       zIndex: filterSheetVisible ? 999 : -1,
     },
+
+    title: {
+      color: Colors.white,
+      fontSize: Sizes(18),
+    },
+
     sheet_container: {
       flex: 1,
       alignItems: 'center',

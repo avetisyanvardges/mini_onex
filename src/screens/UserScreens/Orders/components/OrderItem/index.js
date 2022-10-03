@@ -1,6 +1,5 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
-import { Colors, Shadow, Sizes } from 'assets/RootStyles';
+import { FlatList, View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { CustomText } from 'components';
 import { orderStatus } from 'constants/orders';
@@ -30,6 +29,7 @@ const OrderItem = (props) => {
     <Animatable.View
       animation="fadeInDown"
       duration={index > 5 ? 5 * 200 : index === 0 ? 600 : index * 400}
+      useNativeDriver
       style={styles.container}>
       <View>
         <CustomText children={`ID ${trackingCode}`} globalStyle={styles.tracking_code} />

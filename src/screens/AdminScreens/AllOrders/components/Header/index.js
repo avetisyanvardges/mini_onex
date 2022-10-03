@@ -13,7 +13,6 @@ const HeaderComponent = (props) => {
     height,
     styles,
     theme,
-    mode,
     searchValue,
     handleChange,
     filterSheetVisible,

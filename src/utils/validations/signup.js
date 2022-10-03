@@ -1,5 +1,6 @@
 import * as yup from 'yup';
 import { MAX_INPUT_LENGTH, SIGN_UP_VALIDATION } from 'constants/validations';
+
 const phoneRegExp = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
 const passRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
 

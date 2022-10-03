@@ -8,5 +8,6 @@ export const routNames = {
   },
   ADMIN_SCREENS: {
     INITIAL: 'AdminScreens',
+    ALL_ORDERS: 'AllOrders',
   },
 };
