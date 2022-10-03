@@ -13,7 +13,8 @@ import dispatch from 'helper/dispatch/dispatch';
 import { SIGN_UP_REQUEST } from 'store/actions/types';
 import validationSchema from 'utils/validations/signup';
 
-const RegistrationScreen = () => {
+const RegistrationScreen = (props) => {
+  const { setActiveTab } = props;
   const {
     state,
     theme,
@@ -29,7 +30,14 @@ const RegistrationScreen = () => {
     <Formik
       initialValues={{ ...state }}
       validationSchema={validationSchema}
-      onSubmit={(values) => dispatch(SIGN_UP_REQUEST, { ...values, role })}>
+      onSubmit={(values) =>
+        dispatch(SIGN_UP_REQUEST, {
+          body: { ...values, role },
+          callback: () => {
+            setActiveTab('login');
+          },
+        })
+      }>
       {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
         <View style={styles.login_container}>
           <Animatable.View
@@ -149,7 +157,11 @@ const RegistrationScreen = () => {
               <CustomText children="Admin" globalStyle={{ color: theme?.PRIMARY_TEXT_COLOR }} />
             </Pressable>
           </Animatable.View>
-          <Animatable.View animation="fadeInDown" duration={500} style={styles.button}>
+          <Animatable.View
+            animation="fadeInDown"
+            useNativeDriver
+            duration={500}
+            style={styles.button}>
             <Button title="Sign Up" size="normal" onPress={handleSubmit} />
           </Animatable.View>
         </View>

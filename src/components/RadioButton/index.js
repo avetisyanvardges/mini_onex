@@ -5,7 +5,6 @@ import useContainer from './hook';
 
 const RadioButton = (props) => {
   const { styles, size, active_size } = useContainer(props);
-  console.log(size);
   return (
     <View
       style={[

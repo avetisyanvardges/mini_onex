@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BackgroundColors, Colors, Shadow, Sizes } from 'assets/RootStyles';
+import { Colors, Shadow, Sizes } from 'assets/RootStyles';
 import { deviceInfo } from 'assets/DeviceInfo';
 
 const Styles = (theme, activeTab) => {

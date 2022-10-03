@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import { Colors, Shadow, Sizes } from 'assets/RootStyles';
-import useContainer from 'components/ToastMessage/hook';
 
 const Styles = (theme) => {
   return StyleSheet.create({
