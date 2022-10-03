@@ -44,6 +44,7 @@ function useContainer(props) {
   };
 
   const handleChange = (text) => {
+    setSearchValue(text);
     if (!isEmpty(text)) {
       const body = {
         searchType,
@@ -53,7 +54,6 @@ function useContainer(props) {
     } else {
       dispatch(GET_ORDER_SUCCESS, ordersList);
     }
-    setSearchValue(text);
   };
 
   const styles = Styles(theme, '', '', filterSheetVisible);

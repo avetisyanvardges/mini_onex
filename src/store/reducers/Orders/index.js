@@ -23,7 +23,9 @@ export default function reducer(state = initialState, { payload, type }) {
         }
         return acc;
       }, []);
+
       return {
+        ...state,
         searchList: newList,
       };
 

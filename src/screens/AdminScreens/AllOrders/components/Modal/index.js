@@ -9,7 +9,7 @@ import { CHANGE_ORDER_STATUS } from 'store/actions/types/orderTypes';
 
 function StatusModal({ modalVisible, setModalVisible, status, orderStatusArr, id, theme }) {
   const styles = Styles(theme);
-  const [changedStatus, setChanged] = useState(status);
+  const [changedStatus, setChanged] = useState();
   return (
     <Modal
       animationType="fade"
@@ -32,7 +32,10 @@ function StatusModal({ modalVisible, setModalVisible, status, orderStatusArr, id
             renderItem={({ item, index }) => {
               return (
                 <TouchableOpacity onPress={() => setChanged(index)} style={styles.statuses}>
-                  <RadioButton size={Sizes(18)} active={changedStatus === index} />
+                  <RadioButton
+                    size={Sizes(18)}
+                    active={changedStatus ? changedStatus === index : status === index}
+                  />
                   <CustomText children={item} globalStyle={styles.statuses_text} />
                 </TouchableOpacity>
               );

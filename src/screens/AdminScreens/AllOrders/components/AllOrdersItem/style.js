@@ -36,6 +36,7 @@ const Styles = (theme) => {
       maxHeight: Sizes(24),
       borderRadius: Sizes(8),
       marginRight: Sizes(6),
+      resizeMode: 'contain',
     },
     user_name: {
       color: Colors.green,

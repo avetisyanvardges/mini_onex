@@ -1,16 +1,11 @@
 import React, { Fragment } from 'react';
 import { Pressable, View } from 'react-native';
-import { CustomText } from 'components';
-import { FilterIcon, MoonIcon, SettingsIcon, SunIcon, Tracking } from 'assets/Icons';
+import { FilterIcon, Tracking } from 'assets/Icons';
 import { Colors, Sizes } from 'assets/RootStyles';
 import Input from 'components/Input';
 import useContainer from './hook';
 import { Country } from 'assets/Icons/Country';
 import { searchTypes } from 'constants/search';
-import dispatch from 'helper/dispatch/dispatch';
-import { DARK_THEME, LIGHT_THEME } from 'store/actions/types';
-import { navigate } from 'services/NavigationService';
-import { routNames } from 'constants/routNames';
 
 const HeaderComponent = (props) => {
   const {
@@ -18,7 +13,6 @@ const HeaderComponent = (props) => {
     height,
     styles,
     theme,
-    mode,
     searchValue,
     handleChange,
     filterSheetVisible,
@@ -32,63 +26,6 @@ const HeaderComponent = (props) => {
   } = useContainer(props);
   return (
     <Fragment>
-      <View style={styles.header}>
-        <View style={styles.title_container}>
-          <CustomText children="All Orders" globalStyle={styles.title} />
-        </View>
-        <Pressable
-          onPress={() => setSettingsVisible(!settingsVisible)}
-          style={styles.settings_icon}>
-          <SettingsIcon color={Colors.white} />
-          {settingsVisible && (
-            <View style={styles.settings_sheet}>
-              <SettingsIcon color={theme?.PRIMARY_TEXT_COLOR} />
-              <View style={styles.underline} />
-              <CustomText
-                onPress={() => navigate(routNames.AUTH)}
-                children="Log out"
-                globalStyle={{ fontSize: Sizes(16), color: theme?.PRIMARY_TEXT_COLOR }}
-              />
-              <View style={styles.underline} />
-              <View
-                style={{
-                  width: '100%',
-                  height: Sizes(40),
-                  borderRadius: Sizes(10),
-                  backgroundColor: Colors.silver,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  padding: Sizes(4),
-                }}>
-                <Pressable
-                  onPress={() => dispatch(LIGHT_THEME)}
-                  style={{
-                    flex: 1,
-                    height: '100%',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: mode === LIGHT_THEME ? Colors.white : null,
-                    borderRadius: Sizes(10),
-                  }}>
-                  <SunIcon color={Colors.yellow} />
-                </Pressable>
-                <Pressable
-                  onPress={() => dispatch(DARK_THEME)}
-                  style={{
-                    flex: 1,
-                    height: '100%',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: mode === DARK_THEME ? Colors.white : null,
-                    borderRadius: Sizes(10),
-                  }}>
-                  <MoonIcon color={'blue'} />
-                </Pressable>
-              </View>
-            </View>
-          )}
-        </Pressable>
-      </View>
       <View style={styles.filter_container}>
         <View style={styles.search_container}>
           {searchIcons[searchType]}

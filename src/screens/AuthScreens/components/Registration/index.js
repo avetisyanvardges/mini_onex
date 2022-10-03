@@ -13,7 +13,8 @@ import dispatch from 'helper/dispatch/dispatch';
 import { SIGN_UP_REQUEST } from 'store/actions/types';
 import validationSchema from 'utils/validations/signup';
 
-const RegistrationScreen = () => {
+const RegistrationScreen = (props) => {
+  const { setActiveTab } = props;
   const {
     state,
     theme,
@@ -25,12 +26,18 @@ const RegistrationScreen = () => {
     setRole,
     role,
   } = useContainer();
-  console.log(1111);
   return (
     <Formik
       initialValues={{ ...state }}
       validationSchema={validationSchema}
-      onSubmit={(values) => dispatch(SIGN_UP_REQUEST, { ...values, role })}>
+      onSubmit={(values) =>
+        dispatch(SIGN_UP_REQUEST, {
+          body: { ...values, role },
+          callback: () => {
+            setActiveTab('login');
+          },
+        })
+      }>
       {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
         <View style={styles.login_container}>
           <Animatable.View

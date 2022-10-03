@@ -10,7 +10,7 @@ function useContainer() {
   const styles = Styles(theme, activeTab);
   const content = {
     login: <LoginScreen />,
-    signUp: <RegistrationScreen />,
+    signUp: <RegistrationScreen setActiveTab={setActiveTab} />,
   };
 
   return { activeTab, setActiveTab, content, styles, theme };

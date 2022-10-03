@@ -12,6 +12,7 @@ import { ArrowBottom } from 'assets/Icons/ArrowBottom';
 import StatusModal from 'screens/AdminScreens/AllOrders/components/Modal';
 import dispatch from 'helper/dispatch/dispatch';
 import { CANCEL_ORDER } from 'store/actions/types/orderTypes';
+import { images } from 'assets/Images';
 
 const AllOrdersItem = (props) => {
   const { theme } = useSelector(({ themes }) => themes);
@@ -28,6 +29,8 @@ const AllOrdersItem = (props) => {
       receivedDate,
       status,
       _id,
+      userName,
+      picture,
     },
     index,
   } = props;
@@ -50,11 +53,8 @@ const AllOrdersItem = (props) => {
         <View style={styles.id_container}>
           <CustomText children={`ID ${trackingCode}`} globalStyle={styles.tracking_code} />
           <View style={styles.user_container}>
-            <Image
-              source={require('../../../../../assets/Images/user.png')}
-              style={styles.user_image}
-            />
-            <CustomText children={'Name Surname'} globalStyle={styles.user_name} />
+            <Image source={images.userImage} style={styles.user_image} />
+            <CustomText children={userName} globalStyle={styles.user_name} />
           </View>
         </View>
         <View style={styles.name_container}>

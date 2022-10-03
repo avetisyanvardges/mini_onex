@@ -12,9 +12,18 @@ import dispatch from 'helper/dispatch/dispatch';
 import { SIGN_IN_REQUEST } from 'store/actions/types';
 
 const LoginScreen = () => {
-  const { styles, passwordShow, setPasswordShow, state, theme } = useContainer();
+  const { styles, passwordShow, setPasswordShow, state, setState, theme } = useContainer();
   return (
-    <Formik initialValues={{ ...state }} onSubmit={(values) => dispatch(SIGN_IN_REQUEST, values)}>
+    <Formik
+      initialValues={{ ...state }}
+      onSubmit={(values) =>
+        dispatch(SIGN_IN_REQUEST, {
+          body: values,
+          callback: () => {
+            setState({ ...state, email: '', password: '' });
+          },
+        })
+      }>
       {({ handleChange, handleBlur, handleSubmit, values }) => (
         <View style={styles.login_container}>
           <Animatable.View

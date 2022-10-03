@@ -15,6 +15,7 @@ export default function reducer(state = initialState, { payload, type }) {
         userResponse = state.users[payload.email];
       }
       return {
+        ...state,
         currentUser: userResponse,
       };
     case CREATE_USER_REQUEST:
@@ -26,6 +27,7 @@ export default function reducer(state = initialState, { payload, type }) {
         };
       }
       return {
+        ...state,
         users: newObj,
       };
 
